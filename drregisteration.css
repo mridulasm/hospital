@@ -15,10 +15,8 @@ body
 
 #login-box
 {
-    position: relative;
-    margin: 5% auto;
-    height: 400px;
-    width: 600px;
+   
+   
     background: rgba(48, 148, 241, 0.452);
     box-shadow: 0 2px 4px rgba(0, 0,0,0.6);
     border-radius: 50px; 
