@@ -78,7 +78,7 @@ input[type="submit"]
 input[type="submit"]:hover,
 input[type="submit"]:focus
 {
-    background: #ff5722;
+    background: rgba(17, 117, 211, 0.726);
     transition: 0.2 ease;
 }
 
@@ -95,21 +95,6 @@ input[type="submit"]:focus
     background-size: cover;
     background-position: center;
 }
-
-.or 
-{
-    position: absolute;
-    top: 180px;
-    left: 280px;
-    width: 40px;
-    height: 40px;
-    background: #efefef;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0,0,0.6);
-    line-height: 40px;
-    text-align: center;
-}
-
 .right-box .signinwith
 {
     display: block;
@@ -120,14 +105,14 @@ input[type="submit"]:focus
     text-shadow: 0 2px 4px rgba(0, 0,0,0.6);
 }
 
-button.social
+button.signinbutton
 {
     margin-bottom: 20px;
     width: 220px;
     height: 36px;
     border: none;
     border-radius: 2px;
-    color: #fff;
+    background-color: rgba(17, 117, 211, 0.726);
     font-family: sans-serif;
     font-weight: 500;
     transition: 0.2s ease;
