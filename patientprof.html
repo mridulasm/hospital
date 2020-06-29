@@ -19,6 +19,7 @@
       background-color: #f2f2f2;
       padding: 25px;
     }
+
     .flip-card {
   background-color: transparent;
   width: 300px;
@@ -58,6 +59,14 @@
   color: white;
   transform: rotateY(180deg);
 }
+#book
+{
+  font-size: large;
+}
+#booking-box
+{
+  background-color: transparent
+}
   </style>
 </head>
 
@@ -77,8 +86,8 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">My profile</a></li>
         <li><a href="welcome.html">Home</a></li>
-        <li><a href="#">Doctor</a></li>
-        <li><a href="#">Book Appoinment</a></li>
+        <li><a href="#doctor">Doctor</a></li>
+        <li><a href="#booking-box">Book Appoinment</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="patient.html"><span class="logout"></span> LogOut</a></li>
@@ -94,7 +103,7 @@
   </div>
 </div>
   
-<div class="container-fluid bg-3 text-center">    
+<div class="container-fluid bg-3 text-center" div id="doctor">    
   <h3>Our Specialities..</h3><br>
   <div class="row">
     <div class="col-sm-4">
@@ -211,7 +220,47 @@
   
   </div>
 </div><br><br>
+<!-----------------------------------------booking------------------------------------->
+<div class="container-fluid bg-3 text-center" id="book">
+  <div class="row">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <h1 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Bookings</h1>
+      </div>  
+  </div>
+    
+  <div class="row " id="booking-box">
+      <div class="col-sm-4">
+        
+      </div>
+      <div class="col-sm-4"> 
+        <form method="POST" action="booking.php">
+          <table>
+            
+              <tr>
+                  <td>Name: </td>
+                  <td><input type="text" name="p_name"></td>                    
+              </tr>
+              <tr>
+                  <td>Age: </td>
+                  <td><input type="text" name="p_age"></td>
+              </tr>
+              <tr>
+                  <td>Doctor</td>
+                  <td><input type="password" name="doctor"></td>
+              </tr>
+              <tr>
+                  <td>Contact no.: </td>
+                  <td><input type="text" name="p_no"></td>
+              </tr>
+              <tr> 
+                  <td> <input type="submit" style="background-color: rgba(17, 117, 211, 0.726);"></td>
+              </tr>
+          </table>
+      </form></div>
+      </div>
+    </div>
+  </div> 
+</div>
 
-
-</body>
 </html>

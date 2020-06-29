@@ -80,5 +80,28 @@
     </div>
 </div>
     </div>
+
+<?php
+    if (isset($_POST['Login']))
+    {
+        $d_username=$_POST['d_username'];
+        $d_password=$_POST['d_password'];
+        $sql="select * from doctor_details where username='$d_username' and password='d_password'";
+        $result=$conn->query($sql);
+            if(result->num_rows>0 and (strcmp($d_username,'admin')))
+            {
+                $_SESSION['d_username']=$d_username;
+                header('location:drprofile.html');
+            }
+            elseif ($result->num_rows>0 and !(strcmp($d_username,'admin')))
+            {
+                $_SESSION['d_username']=$d_username;
+                header('location:admin.html');
+            }
+            else{
+                echo '<script>alert("invaalid user")</script>';
+            }
+    }
+?>
 </body>
 </html>
