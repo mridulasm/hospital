@@ -12,7 +12,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }?>
-//html code
+
 <html>
 <head>
         <title>Registeration</title>  
@@ -124,4 +124,4 @@ $d_no = $_POST['d_no'];
 </body>
 </html>
 
-//html ends
+registeration successful

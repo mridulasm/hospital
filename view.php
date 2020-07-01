@@ -4,7 +4,7 @@ require_once('config.php');
 $username=$_SESSION['p_username'];
 
 //retreival_query
-$sql = "SELECT * FROM details where username='$p_username'";
+$sql = "SELECT * FROM patient_details where username='$username'";
 $result = mysqli_query($conn,$sql);
 
 	if (mysqli_num_rows($result)> 0) {
@@ -44,7 +44,7 @@ $result = mysqli_query($conn,$sql);
 		<center>
 		
 			<br><br>
-			<a href="welcome.html"><input type="button" name="finish" value="Finish"></a>
+			<a href="patientprof.html"><input type="button" name="finish" value="Finish"></a>
 			
 		
 		

@@ -1,7 +1,7 @@
 <html>
 <head>
         <title>Registeration</title>  
-        <link rel="stylesheet" type="text/css" href="drregisteration.css">
+        <link rel="stylesheet" type="text/css" href="pregisteration.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -13,33 +13,33 @@
         <div class="container mt-5">
             <div class="row " id="login-box">
                 <div class="col-4 offset-2">
-                    <form method="POST" action="drregister.php">
+                    <form method="POST" action="register.php">
                         <table>
                             <tr>
                                 <td align="center"><B>REGISTRATION FORM<B></td>
                             </tr>
                             <tr>
-                                <td>Username: </td>
-                                <td><input type="text" name="d_username"></td>                    
+                                <td><B>Username: <B></td>
+                                <td><input type="text" name="p_username"></td>                    
                             </tr>
                             <tr>
-                                <td>Name: </td>
-                                <td><input type="text" name="d_name"></td>                    
+                                <td><B>Name: <B></td>
+                                <td><input type="text" name="p_name"></td>                    
                             </tr>
                             <tr>
-                                <td>Department: </td>
-                                <td><input type="text" name="d_department"></td>
+                                <td><B>Age: <B></td>
+                                <td><input type="text" name="p_age"></td>
                             </tr>
                             <tr>
-                                <td>Passord: </td>
-                                <td><input type="password" name="d_password"></td>
+                                <td><B>Passord: <B></td>
+                                <td><input type="password" name="p_password" style="background-color: rgba(163, 241, 213, 0.568);"></td>
                             </tr>
                             <tr>
-                                <td>Contact no.: </td>
-                                <td><input type="text" name="d_no" pattern="[0-9] {10}"></td>
+                                <td><B>Contact no.: <B></td>
+                                <td><input type="text" name="p_no" pattern="[0-9] {10}"></td>
                             </tr>
                             <tr> 
-                                <td> <a href="drregister.php"><input type="button" name="register" value="register"style="background-color: rgba(17, 117, 211, 0.726);" ></a></td>
+                                <td> <a href="register.php"><input type="button" name="register" value="register"style="background-color: rgba(17, 117, 211, 0.726);" ></a></td>
                             </tr>
                         </table> 
                     </form>
@@ -53,21 +53,21 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                    <form name="drUser" method="post" action="drlogin.php">
+                    <form name="pUser" method="post" action="login.php">
                         <table>
                             <tr>
                                 <td align="center"><B>Login<B></td>
                             </tr>
                             <tr>
-                                <td>Username: </td>
-                                <td><input type="text" name="d_username"></td>                    
+                                <td><B>Username: <B></td>
+                                <td><input type="text" name="p_username"></td>                    
                             </tr>
                             <tr>
-                                <td>Password: </td>
-                                <td><input type="text" name="d_password"></td>                    
+                                <td><B>Password: <B></td>
+                                <td><input type="text" name="p_password"></td>                    
                             </tr>
                             <tr> 
-                                <td> <a href="drprofile.html"><button name="login" type="submit" style="background-color: rgba(17, 117, 211, 0.726);" >Login</button></td>
+                                <td> <a href="login.php"><button name="login" type="submit" style= "background-color: rgba(17, 117, 211, 0.726);" >Login</button></td>
                             </tr>
                         </table>
                     </form>
@@ -84,18 +84,18 @@
 <?php
     if (isset($_POST['Login']))
     {
-        $d_username=$_POST['d_username'];
-        $d_password=$_POST['d_password'];
-        $sql="select * from doctor_details where username='$d_username' and password='d_password'";
+        $p_username=$_POST['p_username'];
+        $p_password=$_POST['p_password'];
+        $sql="select * from patient_details where username='$p_username' and password='p_password'";
         $result=$conn->query($sql);
-            if($result->num_rows>0 and (strcmp($d_username,'admin')))
+            if($result->num_rows>0 and (strcmp($p_username,'admin')))
             {
                 $_SESSION['d_username']=$d_username;
-                header('location:drprofile.html');
+                header('location:patientprof.html');
             }
-            elseif ($result->num_rows>0 and !(strcmp($d_username,'admin')))
+            elseif ($result->num_rows>0 and !(strcmp($p_username,'admin')))
             {
-                $_SESSION['d_username']=$d_username;
+                $_SESSION['d_username']=$p_username;
                 header('location:admin.html');
             }
             else{
