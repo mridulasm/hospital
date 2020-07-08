@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,7 +89,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">My profile</a></li>
         <li><a href="welcome.html">Home</a></li>
-        <li><a href="view.php">View</a></li>
+        <li><a href="pview.php">View</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="welcome.html"><span class="logout"></span> LogOut</a></li>
@@ -97,7 +100,8 @@
 
 <div class="jumbotron" style="background: transparent;">
   <div class="container text-center" >
-    <h1>Medicare</h1>      
+    <h1>Medicare</h1> 
+    <h3>Hello <?php echo $_SESSION['p_username']; ?></h3>     
     <p>We care god cures..</p>
     <a href="view.php"><button type="button">view</button></a>
   </div>

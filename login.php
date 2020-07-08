@@ -11,7 +11,7 @@ require_once('config.php');
                 if($result->num_rows>0 and (strcmp($username,'admin')))
                 {
                     $_SESSION['p_username']=$username;
-                    header('location:patientprof.html');
+                    header('location:patientprof.php');
 				}
 				elseif ($result->num_rows>0 and !(strcmp($username,'admin')))
 				{

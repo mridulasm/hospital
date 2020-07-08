@@ -1,18 +1,4 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "hospital_management";
-
-
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}?>
-
+<!--
 <html>
 <head>
         <title>Registeration</title>  
@@ -35,23 +21,23 @@ if ($conn->connect_error) {
                             </tr>
                             <tr>
                                 <td>Username: </td>
-                                <td><input type="text" name="d_username" required></td>                    
+                                <td><input type="text" name="p_username" required></td>                    
                             </tr>
                             <tr>
                                 <td>Name: </td>
-                                <td><input type="text" name="d_name" required></td>                    
+                                <td><input type="text" name="p_name" required></td>                    
                             </tr>
                             <tr>
                                 <td>Department: </td>
-                                <td><input type="text" name="d_department" required></td>
+                                <td><input type="text" name="p_department" required></td>
                             </tr>
                             <tr>
                                 <td>Passord: </td>
-                                <td><input type="password" name="d_password" required></td>
+                                <td><input type="password" name="p_password" required></td>
                             </tr>
                             <tr>
                                 <td>Contact no.: </td>
-                                <td><input type="text" name="d_no" required></td>
+                                <td><input type="text" name="p_no" required></td>
                             </tr>
                             <tr> 
                                 <td> <input type="submit" name="register" style="background-color: rgba(17, 117, 211, 0.726);" ></td>
@@ -68,18 +54,18 @@ if ($conn->connect_error) {
                 </div>
                 <div class="row">
                     <div class="col">
-                    <form name="drUser" method="post" action="drlogin.php">
+                    <form name="pUser" method="post" action="drlogin.php">
                         <table>
                             <tr>
                                 <td align="center"><B>Login<B></td>
                             </tr>
                             <tr>
                                 <td>Username: </td>
-                                <td><input type="text" name="dr_username"></td>                    
+                                <td><input type="text" name="pa_username"></td>                    
                             </tr>
                             <tr>
                                 <td>Password: </td>
-                                <td><input type="text" name="dr_password"></td>                    
+                                <td><input type="text" name="pa_password"></td>                    
                             </tr>
                             <tr> 
                                 <td> <input type="submit" style="background-color: rgba(17, 117, 211, 0.726);" ></td>
@@ -94,8 +80,11 @@ if ($conn->connect_error) {
     
     </div>
 </div>
-    </div>
+    </div>--->
 <?php
+session_start();
+require_once('config.php');
+/*$d_username=$_SESSION['d_username'];*/
 if (isset($_POST['register']))
 {
 $d_username = $_POST['d_username'];
@@ -103,25 +92,36 @@ $d_name = $_POST['d_name'];
 $d_department = $_POST['d_department'];
 $d_password = $_POST['d_password'];
 $d_no = $_POST['d_no'];
-    $sql="select * from doctor_details where username='$d_username'";
-    $result=$conn->query($sql);
-    if ($result->num_rows>0) {
-    echo '<script> alert("username alredy taken")</script>';
-    }
-    else{
-      $sql = "INSERT INTO doctor_details 
-          VALUES ('$d_username','$d_name','$d_password','$d_department','$d_no')";
 
-      if ($conn->query ($sql)) {
-        echo "New record created successfully";
-      } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-      }
+
+$sql = "SELECT * FROM doctor_details WHERE username='$d_username'";
+
+$result=$conn->query($sql);
+
+
+if ($result->num_rows>0)  {
+    echo '<script> alert("username alredy taken")</script>'; 	
+
+}else{
+     $query = "INSERT INTO doctor_details (d_username, d_name, d_password, d_department, d_no) 
+              VALUES ('$d_username', '$d_name', '$d_password', '$d_department', '$d_no')";
+     
+     if ($conn->query ($query)) 
+     {
+        echo '<script> alert("new record created succeffully")</script>'; 
+        header('location:doctor.php');
+     }
+     else{
+         echo  '<script> alert("error")</script>';
+     }
+        
+        
+
     }
 }
 
 ?>
+<!--
 </body>
-</html>
+</html>-->
 
-registeration successful

@@ -1,19 +1,6 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "hospital_management";
 
 
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}?>
-
-<html>
+<!--html>
 <head>
         <title>Registeration</title>  
         <link rel="stylesheet" type="text/css" href="pregisteration.css">
@@ -28,7 +15,7 @@ if ($conn->connect_error) {
         <div class="container mt-5">
             <div class="row " id="login-box">
                 <div class="col-4 offset-2">
-                    <form method="POST" action="drregister.php">
+                    <form method="POST" action="register.php">
                         <table>
                             <tr>
                                 <td align="center"><B>REGISTRATION FORM<B></td>
@@ -75,11 +62,11 @@ if ($conn->connect_error) {
                             </tr>
                             <tr>
                                 <td>Username: </td>
-                                <td><input type="text" name="pa_username"></td>                    
+                                <td><input type="text" name="p_username"></td>                    
                             </tr>
                             <tr>
                                 <td>Password: </td>
-                                <td><input type="text" name="pa_password"></td>                    
+                                <td><input type="text" name="p_password"></td>                    
                             </tr>
                             <tr> 
                                 <td> <input type="submit" style="background-color: rgba(17, 117, 211, 0.726);" ></td>
@@ -94,29 +81,43 @@ if ($conn->connect_error) {
     
     </div>
 </div>
-    </div>
+    </div---->
 <?php
+    session_start();
+require_once('config.php');
+/*$d_username=$_SESSION['p_username'];*/
 if (isset($_POST['register']))
 {
 $p_username = $_POST['p_username'];
 $p_name = $_POST['p_name'];
-$p_department = $_POST['p_department'];
+$p_age = $_POST['p_age'];
 $p_password = $_POST['p_password'];
 $p_no = $_POST['p_no'];
-    $sql="select * from patient_details where username='$p_username'";
-    $result=$conn->query($sql);
-    if ($result->num_rows>0) {
-    echo '<script> alert("username alredy taken")</script>';
-    }
-    else{
-      $sql = "INSERT INTO patient_details 
-          VALUES ('$p_username','$p_name','$p_password','$p_department','$p_no')";
 
-      if ($conn->query ($sql)) {
-        echo "New record created successfully";
-      } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-      }
+
+$sql = "SELECT * FROM patient_details WHERE username='$p_username'";
+
+$result=$conn->query($sql);
+
+
+if ($result->num_rows>0)  {
+    echo '<script> alert("username alredy taken")</script>'; 	
+
+}else{
+     $query = "INSERT INTO patient_details (p_username, p_name, p_password, p_age, p_no) 
+              VALUES ('$p_username', '$p_name', '$p_password', '$p_age', '$p_no')";
+     
+     if ($conn->query ($query)) 
+     {
+        echo '<script> alert("new record created succeffully")</script>'; 
+        header('location:patient.php');
+     }
+     else{
+         echo  '<script> alert("error")</script>';
+     }
+        
+        
+
     }
 }
 

@@ -20,15 +20,15 @@
                             </tr>
                             <tr>
                                 <td><B>Username: <B></td>
-                                <td><input type="text" name="p_username"></td>                    
+                                <td><input type="text" name="p_username" required></td>                    
                             </tr>
                             <tr>
                                 <td><B>Name: <B></td>
-                                <td><input type="text" name="p_name"></td>                    
+                                <td><input type="text" name="p_name" required></td>                    
                             </tr>
                             <tr>
                                 <td><B>Age: <B></td>
-                                <td><input type="text" name="p_age"></td>
+                                <td><input type="text" name="p_age" required></td>
                             </tr>
                             <tr>
                                 <td><B>Passord: <B></td>
@@ -39,7 +39,7 @@
                                 <td><input type="text" name="p_no" pattern="[0-9] {10}"></td>
                             </tr>
                             <tr> 
-                                <td> <a href="register.php"><input type="button" name="register" value="register"style="background-color: rgba(17, 117, 211, 0.726);" ></a></td>
+                                <td><input type="submit" name="register" value="register"style="background-color: rgba(17, 117, 211, 0.726);" ></td>
                             </tr>
                         </table> 
                     </form>

@@ -11,7 +11,7 @@ require_once('config.php');
                 if($result->num_rows>0 and (strcmp($username,'admin')))
                 {
                     $_SESSION['d_username']=$username;
-                    header('location:drprofile.html');
+                    header('location:drprofile.php');
 				}
 				elseif ($result->num_rows>0 and !(strcmp($username,'admin')))
 				{
@@ -24,5 +24,3 @@ require_once('config.php');
 				}
 		}
 	?>
-</body>
-</html>

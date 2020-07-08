@@ -20,15 +20,22 @@
                             </tr>
                             <tr>
                                 <td>Username: </td>
-                                <td><input type="text" name="d_username"></td>                    
+                                <td><input type="text" name="d_username" required></td>                    
                             </tr>
                             <tr>
                                 <td>Name: </td>
-                                <td><input type="text" name="d_name"></td>                    
+                                <td><input type="text" name="d_name" required></td>                    
                             </tr>
                             <tr>
-                                <td>Department: </td>
-                                <td><input type="text" name="d_department"></td>
+                                <td>Department :</td>
+                                <td><select id="d_department" name="d_department" >
+                                <option disabled selected value="select department"> select department </option>
+                                    <option value="Orthopeadics">Orthopeadics</option>
+                                    <option value="Cardiology">Cardiology</option>
+                                    <option value="Neurology">Neurology</option>
+                                    <option value="Dermatology">Dermatology</option>
+                                    <option value="Pediatrician">Pediatrician</option>
+                                    </select></td></td>
                             </tr>
                             <tr>
                                 <td>Passord: </td>
@@ -36,10 +43,10 @@
                             </tr>
                             <tr>
                                 <td>Contact no.: </td>
-                                <td><input type="text" name="d_no" pattern="[0-9] {10}"></td>
+                                <td><input type="text" name="d_no" pattern="[0-9]{10}"></td>
                             </tr>
                             <tr> 
-                                <td> <a href="drregister.php"><input type="button" name="register" value="register"style="background-color: rgba(17, 117, 211, 0.726);" ></a></td>
+                                <td> <input type="submit" name="register" value="register"style="background-color: rgba(17, 117, 211, 0.726);" ></td>
                             </tr>
                         </table> 
                     </form>
@@ -64,7 +71,7 @@
                             </tr>
                             <tr>
                                 <td>Password: </td>
-                                <td><input type="text" name="d_password"></td>                    
+                                <td><input type="password" name="d_password"></td>                    
                             </tr>
                             <tr> 
                                 <td> <a href="drprofile.html"><button name="login" type="submit" style="background-color: rgba(17, 117, 211, 0.726);" >Login</button></td>

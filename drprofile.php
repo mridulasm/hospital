@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <html>
     <body style="background-image: url(bg9.jpg);">
         <head>
@@ -59,12 +62,12 @@
             <main>
                 <section id="hero">
                     <div class="section-inner">
-                        <h1>Hello Doctor</h1>
+                        <h1>Hello <?php echo $_SESSION['d_username']; ?></h1>
                         <p style="font-family: Harrington;font-size: 18px;">“Profile”</p>
                     </div>
                     <br>
                     <br>
-                    <button class="button2">View patients</button>
+                    <a href="drview.php"><button class="button2">View patients</button></a>
     
                 </section>
             </main>
